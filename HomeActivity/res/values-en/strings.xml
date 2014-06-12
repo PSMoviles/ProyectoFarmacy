@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Farmacy En</string>
+    <string name="action_settings">Settings</string>
+    
+    <string name="title_activity_profile">Profile</string>
+    <string name="title_activity_configuration">Configuracion</string>
+    <string name="title_activity_medication">MedicationActivity</string>
+    <string name="title_activity_medicine">MedicineActivity</string>
+    
+    <string name="home_menuItem1">Profile</string>
+    <string name="home_menuItem2">Notifications</string>
+    <string name="home_menuItem3">Medications</string>
+    <string name="home_menuItem4">Drug Stores</string>
+    <string name="home_menuItem5">Configuration</string>
+    <string name="home_Message">Next Take</string>    
+    <string name="home_MessageEmpty">U dont have any takes</string>    
+    <string name="label_Name">Name:</string>
+    <string name="label_LastName">Lasname:</string>
+    <string name="label_Age">Age:</string>
+    <string name="label_Email">Email:</string>
+    <string name="label_Update">Refresh</string>
+    <string name="label_Save">Save</string>
+    <string name="Label_Sexo">Genre</string>
+    <string name="Button_Agregar">Add</string>
+    <string name="str_Masculino">Male</string>
+    <string name="str_Femenino">Female</string>
+    
+    
+
+</resources>

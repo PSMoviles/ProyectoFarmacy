@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Farmacy</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_profile">Profile</string>
+    <string name="title_activity_configuration">Configuracion</string>
+    <string name="title_activity_medication">MedicationActivity</string>
+    <string name="title_activity_medicine">Agregar medicina</string>
+    <string name="home_menuItem1">Perfil</string>
+    <string name="home_menuItem2">Notificaciones</string>
+    <string name="home_menuItem3">Tratamientos</string>
+    <string name="home_menuItem4">Farmacias</string>
+    <string name="home_menuItem5">Configuración</string>
+    <string name="home_Message">Próximas dosis</string>
+    <string name="home_MessageEmpty">No tiene dosis por tomar</string>
+    <string name="label_Name">Nombre:</string>
+    <string name="label_LastName">Apellido:</string>
+    <string name="label_Age">Edad:</string>
+    <string name="label_Email">Correo:</string>
+    <string name="label_Update">Actualizar</string>
+    <string name="label_Save">Guardar</string>
+    <string name="Label_Sexo">Sexo</string>
+    <string name="Button_Agregar">Agregar</string>
+    <string name="str_Masculino">Masculino</string>
+    <string name="str_Femenino">Femenino</string>
+    <string name="lbl_Tratamiento">Tratamiento</string>
+    <string name="lbl_Causa">Causa</string>
+    <string name="lbl_AgregarMedicamento">Agregar medicamento</string>
+    <string name="lbl_registrarTratamiento">Registrar tratamiento</string>
+    <string name="lbl_MedicTratamiento">Medicamentos en este tratamiento</string>
+    <string name="lbl_MedicGuardar">Confirmar cambios</string>
+    <string name="str_TratatmientoExitoso">Tratamiento registrado con éxito</string>
+    <string name="str_TratatmientoError">Error al registrar tratamiento</string>
+    <string name="str_TratatmientoCampos">Debe llenar el nombre de tratamiento y la causa</string>
+    <string name="lbl_MedNombre">Medicina</string>
+    <string name="lbl_MedIndicacion">Indicación terapéutica</string>
+    <string name="lbl_MedExcipiente">Excipiente</string>
+    <string name="lbl_MedDuracionDosis">Duración de la dosis</string>
+    <string name="lbl_MedFrecuenciaDosis">Frecuencia de la dosis</string>
+    <string name="lbl_MedFecInicio">Fecha de inicio</string>
+    <string name="lbl_MedHoraInicio">Hora de inicio</string>
+    <string name="title_activity_map">MapActivity</string>
+    <string name="hello_world">Hello world!</string>
+
+</resources>
