@@ -239,7 +239,7 @@ implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener
 		btnRegTratamiento= (Button) findViewById(R.id.btnRegTratamiento);		
 		txtTratamiento=(EditText) findViewById(R.id.txtMediicina);
 		txtCausa=(EditText) findViewById(R.id.txtIndicacion);
-		lblLegend=(TextView) findViewById(R.id.lblMedicina);
+		lblLegend=(TextView) findViewById(R.id.lblMedicinax);
 		lstMedicamentos=(ListView) findViewById(R.id.lstMedicamentos);
 		btnGuardar=(Button)findViewById(R.id.btnGuardar);
 		btnAdd= (Button)findViewById(R.id.btnAdd);

@@ -127,12 +127,20 @@ public class FarmacyDataBase {
 	{
 		try
 		{
-			OpenToWrite();
-			values.clear();
-			values.put("TRATAMIENTO", tra.getTratamiento());
-			values.put("USUARIOID", tra.getUsuarioId());
-			values.put("ENFERMEDAD",tra.getEnfermedad());
-			database.insert("TRATAMIENTO",null,values);
+			OpenToWrite();			
+			query="Insert into tbl_tratamiento(Tratamiento,Enfermedad,UsuarioId,FecAlta) " +
+					"VALUES('"+ tra.getTratamiento()+"','"+tra.getEnfermedad()+"',"+tra.getUsuarioId()+",'"+tra.getFecha()+"')";
+			database.execSQL(query);
+			
+			/*if(value==-1)
+			{
+				return true;
+			}
+			database.insert("TRATAMIENTO",null,values);	
+			query="select * from tbl_tratamiento";
+			Cursor cursor=database.rawQuery(query, null);
+			cursor.moveToFirst();*/
+					
 			Close();
 			return true;
 		}
@@ -248,17 +256,22 @@ public class FarmacyDataBase {
 		return TratamientoId;
 	}
 	
+	//Funcionando
 	public List<String> TraerExcipiente()
 	{
 		OpenToRead();
-		query="SELECT TipoExcipiente FROM tbl_tipoExcipiente";
+		query="SELECT TipoExcipienteId, TipoExcipiente FROM tbl_tipoExcipiente";
 		Cursor cursor = database.rawQuery(query, null);
 		List<String> Lista= new ArrayList<String>();
-		while(!cursor.isAfterLast())
+		if(cursor.moveToFirst())
 		{
-			Lista.add(cursor.getString(cursor.getColumnIndex("TipoExcipiente")));
-			cursor.moveToNext();
-		}						
+			while(!cursor.isAfterLast())
+			{
+				int i=cursor.getInt(cursor.getColumnIndex("TipoExcipienteId"));
+				Lista.add(cursor.getString(cursor.getColumnIndex("TipoExcipiente")));
+				cursor.moveToNext();
+			}	
+		}
 		Close();
 		return Lista;
 	}
@@ -275,5 +288,62 @@ public class FarmacyDataBase {
 		}						
 		Close();
 		return Lista;
+	}
+	
+	//Funcionando
+	public List<Toma> TomasRecientes()
+	{
+		try
+		{
+			OpenToRead();			
+			query="Select a.RelacionId," +
+					"a.TomaNo," +
+					"a.Fecha," +
+					"a.Hora," +
+					"a.Tomada," +
+					"a.Reprogramada," +
+					"c.TratamientoId," +
+					"c.Tratamiento," +
+					"d.MedicinaId," +
+					"d.Medicina," +
+					"d.TipoExcipienteId " +
+					"from tbl_horario a " +
+					"inner join tbl_MedicinaTratamiento b on a.RelacionId=b.RelacionId " +
+					"inner join tbl_tratamiento c on b.TratamientoId=c.TratamientoId " +
+					"inner join tbl_medicina d on b.MedicinaId=d.MedicinaId " +
+					"limit 3";
+			Cursor cursor = database.rawQuery(query, null);
+			List<Toma> lista= new ArrayList<Toma>();
+			if(cursor.moveToFirst())
+			{
+				while(!cursor.isAfterLast())
+				{
+					Toma take= new Toma();
+					take.setRelacionId(cursor.getInt(cursor.getColumnIndex("RelacionId")));
+					take.setMedicina(cursor.getString(cursor.getColumnIndex("Medicina")));
+					take.setMedicinaid(cursor.getInt(cursor.getColumnIndex("MedicinaId")));
+					take.setTratamientoId(cursor.getInt(cursor.getColumnIndex("TratamientoId")));
+					take.setTratamiento(cursor.getString(cursor.getColumnIndex("Tratamiento")));
+					//take.setFecha(cursor.getString(cursor.getColumnIndex("Fecha")));
+					//take.setHora(cursor.getString(cursor.getColumnIndex("Hora")));
+					take.setTomNo(cursor.getInt(cursor.getColumnIndex("TomaNo")));
+					take.setTipoExcipiente(cursor.getInt(cursor.getColumnIndex("TipoExcipienteId")));
+					int tomada= cursor.getInt(cursor.getColumnIndex("Tomada"));
+					int reprogramada=cursor.getInt(cursor.getColumnIndex("Reprogramada"));
+					if(tomada==1)					
+					take.setTomada(true);
+					if(reprogramada==1)
+					take.setReprogramada(true);
+					cursor.moveToNext();
+					lista.add(take);
+				}		
+			}
+			Close();
+			return lista;
+		}
+		catch(Exception ex)
+		{
+			return null;
+		}
 	}
 }

@@ -13,6 +13,7 @@ public class Toma {
 	private int tomNo;
 	private boolean tomada;
 	private boolean reprogramada;
+	private int tipoExcipiente;
 	
 	public Toma(){}
 	public Toma(int relacionid,
@@ -100,6 +101,12 @@ public class Toma {
 	}
 	public void setTratamiento(String tratamiento) {
 		this.tratamiento = tratamiento;
+	}
+	public int getTipoExcipiente() {
+		return tipoExcipiente;
+	}
+	public void setTipoExcipiente(int tipoExcipiente) {
+		this.tipoExcipiente = tipoExcipiente;
 	}
 
 }

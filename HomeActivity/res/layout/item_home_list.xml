@@ -4,42 +4,32 @@
     android:layout_height="match_parent" >
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
-        <TextView
-            android:id="@+id/item_lblMedication"
+        <ImageView
+            android:id="@+id/dwexcip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tratamiento"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <TextView
-            android:id="@+id/item_lblMedicine"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:text="Medium Text"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:src="@drawable/bottle" />
 
         <LinearLayout
-            android:layout_width="318dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" >
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/lblMedicina"
-                android:layout_width="125dp"
+                android:id="@+id/lblMedicinaxs"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.36"
-                android:text="Fecha"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:text="Large Text"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <TextView
-                android:id="@+id/item_lblHora"
-                android:layout_width="170dp"
+                android:id="@+id/lblTratamientox"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hora"
+                android:text="Small Text"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
         </LinearLayout>

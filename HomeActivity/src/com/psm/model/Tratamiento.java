@@ -5,6 +5,7 @@ public class Tratamiento {
 	private String tratamiento;
 	private int usuarioId;
 	private String enfermedad;
+	private String fecha;
 	
 	public Tratamiento(){}
 	
@@ -46,6 +47,10 @@ public class Tratamiento {
 
 	public void setEnfermedad(String enfermedad) {
 		this.enfermedad = enfermedad;
+	}
+	
+	public String getFecha() {
+		return fecha;
 	}
 	
 }

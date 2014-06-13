@@ -7,7 +7,7 @@ import android.content.SharedPreferences;
 
 import com.psm.SqLite.FarmacyDataBase;
 import com.psm.SqLite.SQLiteHelper;
-import com.psm.model.Usuario;
+import com.psm.model.*;
 import com.psm.ui.*;
 
 import android.os.Bundle;
@@ -42,7 +42,11 @@ public class HomeActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);		
 		InicializarControles();
-		//Funcion para generar el menu lateral	
+		//Funcion para generar el menu lateral
+		Cargar10Proximos();
+		db.TraerExcipiente();
+		//db.TomasRecientes();
+		
 		VerificarUsuario();
 		GenerarMenu();
 		Cargar10Proximos();
@@ -161,7 +165,34 @@ public class HomeActivity extends Activity {
 	
 	public void Cargar10Proximos()
 	{
-		//db.TraerTomasProximas(0);
+		List<Toma> lista= db.TomasRecientes();
+		if(lista!=null)
+		{
+			ArrayList<ItemHomeList> items=new ArrayList<ItemHomeList>(); 	
+			for(Toma t : lista)
+			{
+				ItemHomeList i= new ItemHomeList();
+				switch(t.getTipoExcipiente())
+				{
+					case 1:
+						i.setIcon(getResources().getDrawable(R.drawable.syringe));
+						break;						
+					case 2:
+						i.setIcon(getResources().getDrawable(R.drawable.syrup));
+						break;
+					case 3:
+						i.setIcon(getResources().getDrawable(R.drawable.pill));
+						break;
+					case 4:
+						i.setIcon(getResources().getDrawable(R.drawable.paste));
+						break;
+				}				
+				i.setMedicina(i.getMedicina());
+				i.setTratamiento(i.getTratamiento());
+			}
+			ItemHomeListAdapter adapt=new ItemHomeListAdapter(this,items);
+		}
+		
 	}
 	
 	public void VerificarUsuario()
